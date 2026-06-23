@@ -1,4 +1,4 @@
-# Códex
+# Jarvis
 
 Minisite de documentação pessoal com editor estilo Notion. Construído com Next.js 16, TypeScript e Tailwind CSS.
 

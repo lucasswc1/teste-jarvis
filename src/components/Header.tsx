@@ -48,7 +48,7 @@ export default function Header() {
         }}>
           <div style={{ width: 8, height: 8, background: '#fff', borderRadius: 2, transform: 'rotate(45deg)' }} />
         </div>
-        <span style={{ fontSize: 14.5, fontWeight: 600, letterSpacing: '-.01em', color: '#f4f4f4' }}>Códex</span>
+        <span style={{ fontSize: 14.5, fontWeight: 600, letterSpacing: '-.01em', color: '#f4f4f4' }}>Jarvis</span>
         <span style={{
           fontSize: 10.5, fontFamily: 'var(--font-geist-mono)', color: '#838383',
           border: '1px solid rgba(255,255,255,.09)', borderRadius: 999,
