@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: #0a0a0b;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #e8e8e8;
+}
+
+::selection { background: rgba(255,255,255,.22); color: #fff; }
+
+/* ── Scrollbar ─────────────────────────────────────────────────────── */
+.cx-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
+.cx-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.09);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.cx-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.16);
+  background-clip: padding-box;
+}
+.cx-scroll { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.12) transparent; }
+
+/* ── Animations ────────────────────────────────────────────────────── */
+@keyframes cxfade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cxpop {
+  from { opacity: 0; transform: translateY(-8px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cx-block-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-cxfade { animation: cxfade .28s ease both; }
+.animate-cxpop  { animation: cxpop  .14s ease both; }
+.cx-block-in    { animation: cx-block-in .22s cubic-bezier(0.2, 0, 0, 1) both; }
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 1180px) { .cx-toc { display: none !important; } }
+@media (max-width: 860px) {
+  .cx-menu { display: inline-flex !important; }
+  .cx-search { max-width: none !important; }
+  .cx-scrim { display: block !important; }
+  .cx-sidebar {
+    position: fixed !important; top: 57px; bottom: 0; left: 0; z-index: 40;
+    transform: translateX(-100%);
+    transition: transform .22s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 0 60px rgba(0,0,0,.6);
+  }
+  .cx-sidebar[data-open="true"] { transform: translateX(0); }
+  article { padding: 32px 24px 80px !important; }
+}
