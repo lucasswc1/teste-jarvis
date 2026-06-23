@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Códex
 
-## Getting Started
+Minisite de documentação pessoal com editor estilo Notion. Construído com Next.js 16, TypeScript e Tailwind CSS.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16.2.9** — App Router
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Geist** — fonte da Vercel
+
+## Instalação
+
+```bash
+npm install
+```
+
+## Desenvolvimento
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Estrutura do projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── globals.css       # Estilos globais e animações
+│   ├── layout.tsx
+│   └── page.tsx          # Entrada da aplicação
+├── components/
+│   ├── BlockEditor.tsx   # Editor estilo Notion (blocos live)
+│   ├── CommandPalette.tsx
+│   ├── ConfirmDialog.tsx
+│   ├── DocReader.tsx     # Visualizador de documentos
+│   ├── Editor.tsx        # Wrapper do editor com toolbar
+│   ├── Header.tsx
+│   └── Sidebar.tsx       # Navegação com drag & drop
+├── context/
+│   └── CodexContext.tsx  # Estado global (useReducer)
+├── hooks/
+│   └── useHover.ts
+├── lib/
+│   └── docs.ts           # Dados base e parser de markdown
+└── types/
+    └── index.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Funcionalidades
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Editor de blocos em tempo real (markdown → estilos ao digitar)
+- Criar, editar e excluir notas pessoais
+- Drag & drop de notas entre categorias na sidebar
+- Busca com Command Palette (`⌘K`)
+- Notas persistidas em `localStorage`
+- Suporte a: parágrafos, títulos, listas, blocos de código e callouts
